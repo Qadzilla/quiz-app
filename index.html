@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Quiz App</h1>
+      <nav>
+        <button id="quiz-tab" class="tab active">Take Quiz</button>
+        <button id="leaderboard-tab" class="tab">Leaderboard</button>
+      </nav>
+    </header>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+      <div class="spinner"></div>
+      <p id="loading-text">Loading...</p>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message hidden">
+      <p id="error-text"></p>
+      <button id="error-dismiss" class="btn secondary">Dismiss</button>
+    </div>
+
+    <main>
+      <!-- Quiz Section -->
+      <section id="quiz-section" class="section">
+        <div id="start-screen">
+          <h2>Test Your Knowledge</h2>
+          <p>Answer questions and compete for the top spot on the leaderboard!</p>
+          <form id="start-form">
+            <input type="text" id="player-name" placeholder="Enter your name" required>
+            <button type="submit" class="btn primary">Start Quiz</button>
+          </form>
+        </div>
+
+        <div id="quiz-screen" class="hidden">
+          <div class="quiz-header">
+            <span id="question-count">Question 1 of 10</span>
+          </div>
+          <div id="question-container">
+            <h3 id="question-text"></h3>
+            <div id="options-container"></div>
+          </div>
+          <div class="quiz-footer">
+            <div id="feedback" class="hidden"></div>
+            <button id="next-btn" class="btn primary hidden">Next Question</button>
+          </div>
+        </div>
+
+        <div id="results-screen" class="hidden">
+          <h2>Quiz Complete!</h2>
+          <div class="results-card">
+            <p class="player-result">Well done, <span id="result-name"></span>!</p>
+            <div class="score-display">
+              <span id="final-score">0</span>
+              <span class="score-label">/ <span id="total-questions">10</span></span>
+            </div>
+            <p id="percentage"></p>
+          </div>
+          <div id="answer-review" class="answer-review"></div>
+          <button id="play-again" class="btn primary">Play Again</button>
+          <button id="view-leaderboard" class="btn secondary">View Leaderboard</button>
+        </div>
+      </section>
+
+      <!-- Leaderboard Section -->
+      <section id="leaderboard-section" class="section hidden">
+        <h2>Global Leaderboard</h2>
+        <div class="leaderboard-header">
+          <span>Rank</span>
+          <span>Player</span>
+          <span>Score</span>
+          <span>Percentage</span>
+        </div>
+        <div id="leaderboard-list">
+          <p class="empty-state">No scores yet. Be the first to play!</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/src/client/main.ts"></script>
+</body>
+</html>
