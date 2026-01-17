@@ -10,9 +10,6 @@ import { getAllAttempts, getPlayer } from './store.js';
  * @returns Number of correct answers
  */
 export function calculateScore(quiz: Quiz, answers: number[]): number {
-  // TODO: Implement scoring logic
-  // - Compare each answer to correctIndex
-  // - Return count of correct answers
   let score = 0;
   for (let i = 0; i < quiz.questions.length; i++) {
     const question = quiz.questions[i];
@@ -30,9 +27,6 @@ export function calculateScore(quiz: Quiz, answers: number[]): number {
  * @returns Percentage as a number (0-100)
  */
 export function calculatePercentage(score: number, total: number): number {
-  // TODO: Implement percentage calculation
-  // - Handle division by zero
-  // - Round to 2 decimal places
   if (total === 0) return 0;
   return Math.round((score / total) * 10000) / 100;
 }
@@ -86,11 +80,6 @@ export function buildLeaderboard(): LeaderboardEntry[] {
  * @returns negative if a ranks higher, positive if b ranks higher, 0 if tied
  */
 export function compareAttempts(a: QuizAttempt, b: QuizAttempt): number {
-  // TODO: Implement comparison logic
-  // Primary: higher score wins
-  // Secondary: higher percentage wins (for different quiz lengths)
-  // Tertiary: earlier completion wins (tie-breaker)
-
   if (b.score !== a.score) {
     return b.score - a.score;
   }
@@ -123,8 +112,3 @@ export function assignRanks(entries: LeaderboardEntry[]): void {
     }
   }
 }
-
-// TODO: Add functions for:
-// - Getting player's rank
-// - Getting top N players
-// - Statistics (average score, etc.)

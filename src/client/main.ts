@@ -41,7 +41,6 @@ interface SubmitResult {
 }
 
 // DOM Elements
-// TODO: Add type assertions after ensuring elements exist
 const quizTab = document.getElementById('quiz-tab');
 const leaderboardTab = document.getElementById('leaderboard-tab');
 const quizSection = document.getElementById('quiz-section');
@@ -92,14 +91,12 @@ function hideError(): void {
 
 // API Functions
 async function fetchQuiz(id: string): Promise<Quiz> {
-  // TODO: Implement API call
   const response = await fetch(`${API_BASE}/quiz/${id}`);
   if (!response.ok) throw new Error('Failed to fetch quiz');
   return response.json() as Promise<Quiz>;
 }
 
 async function submitQuiz(quizId: string, playerName: string, answers: number[]): Promise<SubmitResult> {
-  // TODO: Implement API call
   const response = await fetch(`${API_BASE}/quiz/${quizId}/submit`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -110,7 +107,6 @@ async function submitQuiz(quizId: string, playerName: string, answers: number[])
 }
 
 async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
-  // TODO: Implement API call
   const response = await fetch(`${API_BASE}/leaderboard`);
   if (!response.ok) throw new Error('Failed to fetch leaderboard');
   return response.json() as Promise<LeaderboardEntry[]>;
@@ -118,7 +114,6 @@ async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
 
 // UI Functions
 function showScreen(screen: 'start' | 'quiz' | 'results'): void {
-  // TODO: Implement screen switching
   startScreen?.classList.add('hidden');
   quizScreen?.classList.add('hidden');
   resultsScreen?.classList.add('hidden');
@@ -137,7 +132,6 @@ function showScreen(screen: 'start' | 'quiz' | 'results'): void {
 }
 
 function showSection(section: 'quiz' | 'leaderboard'): void {
-  // TODO: Implement tab switching
   quizSection?.classList.add('hidden');
   leaderboardSection?.classList.add('hidden');
   quizTab?.classList.remove('active');
@@ -154,7 +148,6 @@ function showSection(section: 'quiz' | 'leaderboard'): void {
 }
 
 function renderQuestion(): void {
-  // TODO: Implement question rendering
   if (!currentQuiz) return;
 
   const question = currentQuiz.questions[currentQuestionIndex];
@@ -199,7 +192,6 @@ function selectAnswer(index: number): void {
 }
 
 function nextQuestion(): void {
-  // TODO: Implement next question logic
   currentQuestionIndex++;
   if (currentQuiz && currentQuestionIndex >= currentQuiz.questions.length) {
     finishQuiz();
@@ -368,9 +360,3 @@ function init(): void {
 
 // Start app when DOM is ready
 document.addEventListener('DOMContentLoaded', init);
-
-// TODO: Add functions for:
-// - Error handling UI
-// - Loading states
-// - Quiz selection (multiple quizzes)
-// - Answer review after completion

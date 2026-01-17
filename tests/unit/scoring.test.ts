@@ -29,11 +29,6 @@ describe('calculateScore', () => {
     const answers = [0, 2, 2]; // First and third correct
     expect(calculateScore(mockQuiz, answers)).toBe(2);
   });
-
-  // TODO: Add tests for:
-  // - Empty answers array
-  // - More answers than questions
-  // - Fewer answers than questions
 });
 
 describe('calculatePercentage', () => {
@@ -52,8 +47,6 @@ describe('calculatePercentage', () => {
   it('should round to 2 decimal places', () => {
     expect(calculatePercentage(1, 3)).toBe(33.33);
   });
-
-  // TODO: Add more edge case tests
 });
 
 describe('compareAttempts', () => {
@@ -85,12 +78,4 @@ describe('compareAttempts', () => {
     const later = { ...baseAttempt, completedAt: new Date('2024-01-01T14:00:00Z') };
     expect(compareAttempts(earlier, later)).toBeLessThan(0);
   });
-
-  // TODO: Add tests for:
-  // - Exact ties
-  // - Edge cases with same timestamp
 });
-
-// TODO: Add tests for:
-// - buildLeaderboard()
-// - assignRanks()

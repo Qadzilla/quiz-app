@@ -42,8 +42,6 @@ describe('Quiz Store', () => {
       addQuiz({ ...mockQuiz, id: 'quiz-2', title: 'Quiz 2' });
       expect(getAllQuizzes()).toHaveLength(2);
     });
-
-    // TODO: Add more tests
   });
 
   describe('players', () => {
@@ -65,8 +63,6 @@ describe('Quiz Store', () => {
     it('should return undefined for non-existent player name', () => {
       expect(getPlayerByName('Unknown')).toBeUndefined();
     });
-
-    // TODO: Add more tests
   });
 
   describe('attempts', () => {
@@ -100,7 +96,5 @@ describe('Quiz Store', () => {
       addAttempt({ ...mockAttempt, id: 'attempt-2' });
       expect(getAllAttempts()).toHaveLength(2);
     });
-
-    // TODO: Add more tests
   });
 });

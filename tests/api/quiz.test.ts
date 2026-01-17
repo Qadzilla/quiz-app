@@ -45,8 +45,6 @@ describe('Quiz API', () => {
       expect(response.status).toBe(200);
       expect(response.body).toHaveLength(1);
     });
-
-    // TODO: Add more tests
   });
 
   describe('GET /api/quiz/:id', () => {
@@ -63,8 +61,6 @@ describe('Quiz API', () => {
       // Verify correct answers are stripped
       expect(response.body.questions[0]).not.toHaveProperty('correctIndex');
     });
-
-    // TODO: Add more tests
   });
 
   describe('POST /api/quiz/:id/submit', () => {
@@ -114,11 +110,6 @@ describe('Quiz API', () => {
       expect(response.body.score).toBe(1);
       expect(response.body.percentage).toBe(50);
     });
-
-    // TODO: Add tests for:
-    // - Creating new player
-    // - Reusing existing player
-    // - Multiple submissions by same player
   });
 
   describe('GET /api/health', () => {

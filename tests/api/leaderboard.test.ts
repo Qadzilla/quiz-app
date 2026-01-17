@@ -77,13 +77,7 @@ describe('Leaderboard API', () => {
       seedData();
       const response = await request(app).get('/api/leaderboard');
       expect(response.status).toBe(200);
-      // TODO: Verify ranking order once buildLeaderboard is implemented
     });
-
-    // TODO: Add tests for:
-    // - Correct ranking order
-    // - Tie handling
-    // - Multiple attempts by same player (best score only)
   });
 
   describe('GET /api/leaderboard/top/:n', () => {
@@ -93,8 +87,6 @@ describe('Leaderboard API', () => {
       expect(response.status).toBe(200);
       expect(response.body.length).toBeLessThanOrEqual(2);
     });
-
-    // TODO: Add more tests
   });
 
   describe('GET /api/leaderboard/player/:id', () => {
@@ -110,7 +102,5 @@ describe('Leaderboard API', () => {
       expect(response.body.playerId).toBe('p1');
       expect(response.body.totalAttempts).toBeDefined();
     });
-
-    // TODO: Add more tests
   });
 });

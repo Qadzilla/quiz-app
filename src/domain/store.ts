@@ -9,54 +9,44 @@ const attempts = new Map<string, QuizAttempt>();
 
 // Quiz operations
 export function getQuiz(id: string): Quiz | undefined {
-  // TODO: Implement
   return quizzes.get(id);
 }
 
 export function getAllQuizzes(): Quiz[] {
-  // TODO: Implement
   return Array.from(quizzes.values());
 }
 
 export function addQuiz(quiz: Quiz): void {
-  // TODO: Implement
   quizzes.set(quiz.id, quiz);
 }
 
 // Player operations
 export function getPlayer(id: string): Player | undefined {
-  // TODO: Implement
   return players.get(id);
 }
 
 export function getPlayerByName(name: string): Player | undefined {
-  // TODO: Implement - find player by name
   return Array.from(players.values()).find(p => p.name === name);
 }
 
 export function addPlayer(player: Player): void {
-  // TODO: Implement
   players.set(player.id, player);
 }
 
 // Attempt operations
 export function getAttempt(id: string): QuizAttempt | undefined {
-  // TODO: Implement
   return attempts.get(id);
 }
 
 export function getAttemptsByPlayer(playerId: string): QuizAttempt[] {
-  // TODO: Implement - filter attempts by player
   return Array.from(attempts.values()).filter(a => a.playerId === playerId);
 }
 
 export function getAllAttempts(): QuizAttempt[] {
-  // TODO: Implement
   return Array.from(attempts.values());
 }
 
 export function addAttempt(attempt: QuizAttempt): void {
-  // TODO: Implement
   attempts.set(attempt.id, attempt);
 }
 

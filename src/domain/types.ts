@@ -38,8 +38,3 @@ export interface LeaderboardEntry {
   percentage: number;
   completedAt: Date;
 }
-
-// TODO: Add any additional types needed for:
-// - Quiz submission payload
-// - API response types
-// - Error types

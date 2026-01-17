@@ -12,9 +12,6 @@ export function createApp() {
   app.use(cors());
   app.use(express.json());
 
-  // Static files (for production)
-  // TODO: app.use(express.static('dist/public'));
-
   // API routes
   app.use('/api/quiz', quizRouter);
   app.use('/api/leaderboard', leaderboardRouter);
@@ -23,9 +20,6 @@ export function createApp() {
   app.get('/api/health', (_req, res) => {
     res.json({ status: 'ok' });
   });
-
-  // TODO: Add error handling middleware
-  // TODO: Add 404 handler
 
   return app;
 }
